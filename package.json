@@ -1,0 +1,41 @@
+{
+	"name": "ingot",
+	"description": "Automation platform for building and testing software",
+	"keywords": [
+		"ingot",
+		"automation",
+		"testing"
+	],
+	"version": "0.1.0",
+	"author": {
+		"name": "Appcelerator, Inc.",
+		"email": "npmjs@appcelerator.com"
+	},
+	"maintainers": [
+		{"name": "Chris Barber", "email": "cbarber@appcelerator.com"}
+	],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/appcelerator/ingot.git"
+	},
+	"preferGlobal": true,
+	"dependencies": {
+		"async": "~0.9.0",
+		"commander": "~2.2.0",
+		"ingot-hub": "*",
+		"ingot-spoke": "*",
+		"ingot-web-server": "*",
+		"longjohn": "~0.2.4",
+		"node-appc": "^0.2.13",
+		"request": "~2.36.0",
+		"svcmgr": "*"
+	},
+	"license": "Apache Public License v2",
+	"bin": {
+		"ingot": "./bin/ingot"
+	},
+	"main": "./index",
+	"engines": {
+		"node": ">=0.8"
+	}
+}
