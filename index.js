@@ -16,6 +16,7 @@ if (fs.existsSync(configFile)) {
 		config[i] = cfg[i];
 	}
 }
+config.logger === undefined && (config.logger = console);
 
 var services = [];
 Array.isArray(cmdr.args) && cmdr.args.forEach(function (arg) {
@@ -32,9 +33,9 @@ if (!services.length) {
 	];
 }
 
-svcmgr.setup(config).load(services, function (err, services) {
-	if (services['appc-web-server']) {
-		services['appc-web-server'].module.app.locals.title = 'Ingot • Powered by Appcelerator';
+svcmgr.setup(config).load(services, function (err) {
+	if (services['ingot-web-server']) {
+		services['ingot-web-server'].module.app.locals.title = 'Ingot • Powered by Appcelerator';
 	}
 
 	svcmgr.start(function () {
