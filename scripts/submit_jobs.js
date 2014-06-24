@@ -50,8 +50,8 @@ for (var i = 0; i < 100; i++) {
 		priority: randomIntFromInterval(-20, 20),
 		payload: JSON.stringify({ foo: new Date }),
 		meta: JSON.stringify({
-			os: osList.join(','),
-			platform: platformList.join(',')
+			os: osList,
+			platform: platformList
 		})
 	});
 }
