@@ -6,7 +6,7 @@
 		"automation",
 		"testing"
 	],
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"author": {
 		"name": "Appcelerator, Inc.",
 		"email": "npmjs@appcelerator.com"
@@ -22,8 +22,10 @@
 	"dependencies": {
 		"async": "~0.9.0",
 		"commander": "~2.2.0",
+		"ingot-common": "*",
 		"ingot-hub": "*",
 		"ingot-spoke": "*",
+		"ingot-titanium-sdk": "*",
 		"ingot-web-server": "*",
 		"longjohn": "~0.2.4",
 		"node-appc": "^0.2.13",

@@ -1,6 +1,7 @@
 var appc = require('node-appc'),
 	cmdr = require('commander'),
 	fs = require('fs'),
+	ic = require('ingot-common'),
 	path = require('path'),
 	svcmgr = require('svcmgr');
 
@@ -27,10 +28,7 @@ Array.isArray(cmdr.args) && cmdr.args.forEach(function (arg) {
 
 if (!services.length) {
 	// load them all
-	services = [
-		'ingot-hub',
-		'ingot-spoke'
-	];
+	services = ic.findModules('service');
 }
 
 svcmgr.setup(config).load(services, function (err) {
