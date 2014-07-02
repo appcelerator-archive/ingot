@@ -30,7 +30,8 @@
 		"longjohn": "~0.2.4",
 		"node-appc": "^0.2.13",
 		"request": "~2.36.0",
-		"svcmgr": "*"
+		"svcmgr": "*",
+		"winston": "0.7.3"
 	},
 	"license": "Apache Public License v2",
 	"bin": {

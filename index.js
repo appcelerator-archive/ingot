@@ -2,8 +2,39 @@ var appc = require('node-appc'),
 	cmdr = require('commander'),
 	fs = require('fs'),
 	ic = require('ingot-common'),
+	longjohn = require('longjohn'),
 	path = require('path'),
-	svcmgr = require('svcmgr');
+	svcmgr = require('svcmgr'),
+	winston = require('winston'),
+	logger = new (winston.Logger)({
+		padLevels: true,
+		levels: {
+			ingot: 0,
+			svcmgr: 0,
+			info: 0,
+			error: 0
+		},
+		colors: {
+			ingot: 'magenta',
+			svcmgr: 'blue'
+		},
+		transports: [
+			new winston.transports.Console({
+				level: 'ingot',
+				colorize: true,
+				timestamp: true
+			})
+		]
+	});
+
+logger.addLevel = function (name, color, level) {
+	var obj = {};
+	obj[name] = level || 0;
+	logger.setLevels(appc.util.mix(obj, logger.levels));
+	obj = {};
+	obj[name] = color;
+	winston.addColors(obj);
+};
 
 cmdr.version(require('./package.json').version)
 	.parse(process.argv);
@@ -17,7 +48,7 @@ if (fs.existsSync(configFile)) {
 		config[i] = cfg[i];
 	}
 }
-config.logger === undefined && (config.logger = console);
+config.logger = logger;
 
 var services = [];
 Array.isArray(cmdr.args) && cmdr.args.forEach(function (arg) {
@@ -37,7 +68,7 @@ svcmgr.setup(config).load(services, function (err) {
 	}
 
 	svcmgr.start(function () {
-		console.info('ingot: all services started');
+		logger.ingot('all services started');
 	});
 });
 
