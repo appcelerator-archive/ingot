@@ -6,7 +6,7 @@ var appc = require('node-appc'),
 	path = require('path'),
 	svcmgr = require('svcmgr'),
 	winston = require('winston'),
-	logger = new (winston.Logger)({
+	logger = new winston.Logger({
 		padLevels: true,
 		levels: {
 			ingot: 0,
