@@ -1,4 +1,4 @@
-Ingot Automation Platform
+Ingot Automation Platform [![Build Status](https://travis-ci.org/appcelerator/ingot.svg)](https://travis-ci.org/appcelerator/ingot)
 =========================
 
 Ingot is an platform for automating tasks such as building and testing software.
