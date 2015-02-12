@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- '0.10'
+- '0.12'
+install:
+- npm install
+script:
+- npm test
+deploy:
+  provider: npm
+  email: npmjs@appcelerator.com
+  api_key:
+    secure: OMgPgALWpJWIwSs0uY6AkiVmp3TrgnGcjg8gKFt41CvyqDHnoR9A/EOptNIscMxVyoLzPpZFFb9dQ11ULAw4ywTipXDG/WoHRnnxCka7Gnb64PBYsmtAZNhM7Cn3gnhR9EH+YP6h7ce/kSzhJi42iOvN45G1IdLu6Jc2V5pK/yM=
+  on:
+    tags: true
+    repo: appcelerator/ingot
